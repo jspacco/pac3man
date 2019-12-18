@@ -665,6 +665,15 @@ def runGames( layout, pacman, ghosts, display, numGames, record, numTraining = 0
 
     return games
 
+def main(argstring):
+    argstring = argstring.lstrip('python ').lstrip('python3 ')
+    argstring = argstring.lstrip('pacman.py ')
+
+    args = readCommand(argstring.split())
+    runGames(**args)
+
+    pass
+
 if __name__ == '__main__':
     """
     The main function called when pacman.py is run
