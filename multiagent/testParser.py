@@ -68,7 +68,7 @@ class TestParser(object):
                 test['__emit__'].append(("multiline", m.group(1)))
                 i += 1
                 continue
-            print 'error parsing test file: %s' % self.path
+            print('error parsing test file: %s' % self.path)
             sys.exit(1)
         return test
 

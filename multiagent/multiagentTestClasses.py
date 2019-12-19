@@ -44,38 +44,38 @@ class MultiagentTreeState(object):
 
     def generateSuccessor(self, agentIndex, action):
         if VERBOSE:
-            print "generateSuccessor(%s, %s, %s) -> %s" % (self.state, agentIndex, action, self.problem.stateToSuccessorMap[self.state][action])
+            print("generateSuccessor(%s, %s, %s) -> %s" % (self.state, agentIndex, action, self.problem.stateToSuccessorMap[self.state][action]))
         successor = self.problem.stateToSuccessorMap[self.state][action]
         self.problem.generatedStates.add(successor)
         return MultiagentTreeState(self.problem, successor)
 
     def getScore(self):
         if VERBOSE:
-            print "getScore(%s) -> %s" % (self.state, self.problem.evaluation[self.state])
+            print("getScore(%s) -> %s" % (self.state, self.problem.evaluation[self.state]))
         if self.state not in self.problem.evaluation:
             raise Exception('getScore() called on non-terminal state or before maximum depth achieved.')
         return float(self.problem.evaluation[self.state])
 
     def getLegalActions(self, agentIndex=0):
         if VERBOSE:
-            print "getLegalActions(%s) -> %s" % (self.state, self.problem.stateToActions[self.state])
+            print("getLegalActions(%s) -> %s" % (self.state, self.problem.stateToActions[self.state]))
         #if len(self.problem.stateToActions[self.state]) == 0:
         #    print "WARNING: getLegalActions called on leaf state %s" % (self.state,)
         return list(self.problem.stateToActions[self.state])
 
     def isWin(self):
         if VERBOSE:
-            print "isWin(%s) -> %s" % (self.state, self.state in self.problem.winStates)
+            print("isWin(%s) -> %s" % (self.state, self.state in self.problem.winStates))
         return self.state in self.problem.winStates
 
     def isLose(self):
         if VERBOSE:
-            print "isLose(%s) -> %s" % (self.state, self.state in self.problem.loseStates)
+            print("isLose(%s) -> %s" % (self.state, self.state in self.problem.loseStates))
         return self.state in self.problem.loseStates
 
     def getNumAgents(self):
         if VERBOSE:
-            print "getNumAgents(%s) -> %s" % (self.state, self.problem.numAgents)
+            print("getNumAgents(%s) -> %s" % (self.state, self.problem.numAgents))
         return self.problem.numAgents
 
 
@@ -115,7 +115,7 @@ def parseTreeProblem(testDict):
             state, value = tokens
             evaluation[state] = float(value)
         else:
-            raise Exception, "[parseTree] Bad evaluation line: |%s|" % (line,)
+            raise Exception("[parseTree] Bad evaluation line: |%s|" % (line,))
 
     for line in testDict["successors"].split('\n'):
         tokens = line.split()
@@ -123,7 +123,7 @@ def parseTreeProblem(testDict):
             state, action, nextState = tokens
             successors.append((state, action, nextState))
         else:
-            raise Exception, "[parseTree] Bad successor line: |%s|" % (line,)
+            raise Exception("[parseTree] Bad successor line: |%s|" % (line,))
 
     return MultiagentTreeProblem(numAgents, startState, winStates, loseStates, successors, evaluation)
 
@@ -134,12 +134,12 @@ def run(lay, layName, pac, ghosts, disp, nGames=1, name='games'):
     Runs a few games and outputs their statistics.
     """
     starttime = time.time()
-    print '*** Running %s on' % name, layName, '%d time(s).' % nGames
+    print('*** Running %s on' % name, layName, '%d time(s).' % nGames)
     games = pacman.runGames(lay, pac, ghosts, disp, nGames, False, catchExceptions=True, timeout=120)
-    print '*** Finished running %s on' % name, layName, 'after %d seconds.' % (time.time() - starttime)
+    print('*** Finished running %s on' % name, layName, 'after %d seconds.' % (time.time() - starttime))
     stats = {'time': time.time() - starttime, 'wins': [g.state.isWin() for g in games].count(True), 'games': games, 'scores': [g.state.getScore() for g in games],
              'timeouts': [g.agentTimeout for g in games].count(True), 'crashes': [g.agentCrashed for g in games].count(True)}
-    print '*** Won %d out of %d games. Average score: %f ***' % (stats['wins'], len(games), sum(stats['scores']) * 1.0 / len(games))
+    print('*** Won %d out of %d games. Average score: %f ***' % (stats['wins'], len(games), sum(stats['scores']) * 1.0 / len(games)))
     return stats
 
 class GradingAgent(Agent):
