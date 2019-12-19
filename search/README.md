@@ -1,4 +1,4 @@
-Berkeley AI Materials    
+Python3 port of [Berkeley AI Pacman Search](http://ai.berkeley.edu)
 
 Project 1: Search
 -----------------
@@ -42,81 +42,49 @@ The code for this project consists of several Python files, some of which you wi
 
 **Files you'll edit:**
 
-`[search.py](http://ai.berkeley.edu/projects/release/search/v1/001/docs/search.html)`
+[`search.py`](search.py)  Where all of your search algorithms will reside.
 
-Where all of your search algorithms will reside.
-
-`[searchAgents.py](http://ai.berkeley.edu/projects/release/search/v1/001/docs/searchAgents.html)`
-
-Where all of your search-based agents will reside.
+[`searchAgents.py`](searchAgents.py)   Where all of your search-based agents will reside.
 
 **Files you might want to look at:**
 
-`[pacman.py](http://ai.berkeley.edu/projects/release/search/v1/001/docs/pacman.html)`
+[`pacman.py`](pacman.py)   The main file that runs Pacman games. This file describes a Pacman GameState type, which you use in this project.
 
-The main file that runs Pacman games. This file describes a Pacman GameState type, which you use in this project.
+[`game.py`](game.py)   The logic behind how the Pacman world works. This file describes several supporting types like AgentState, Agent, Direction, and Grid.
 
-`[game.py](http://ai.berkeley.edu/projects/release/search/v1/001/docs/game.html)`
-
-The logic behind how the Pacman world works. This file describes several supporting types like AgentState, Agent, Direction, and Grid.
-
-`[util.py](http://ai.berkeley.edu/projects/release/search/v1/001/docs/util.html)`
-
-Useful data structures for implementing search algorithms.
+[`util.py`](util.py)   Useful data structures for implementing search algorithms.
 
 **Supporting files you can ignore:**
 
-`[graphicsDisplay.py](http://ai.berkeley.edu/projects/release/search/v1/001/docs/graphicsDisplay.html)`
+[`graphicsDisplay.py`](graphicsDisplay.py)   Graphics for Pacman
 
-Graphics for Pacman
+[`graphicsUtils.py`](graphicsUtils.py)   Support for Pacman graphics
 
-`[graphicsUtils.py](http://ai.berkeley.edu/projects/release/search/v1/001/docs/graphicsUtils.html)`
+[`textDisplay.py`](textDisplay.py)   ASCII graphics for Pacman
 
-Support for Pacman graphics
+[`ghostAgents.py`](ghostAgents.py)   Agents to control ghosts
 
-`[textDisplay.py](http://ai.berkeley.edu/projects/release/search/v1/001/docs/textDisplay.html)`
+[`keyboardAgents.py`](keyboardAgents.py)   Keyboard interfaces to control Pacman
 
-ASCII graphics for Pacman
+[`layout.py`](layout.py)   Code for reading layout files and storing their contents
 
-`[ghostAgents.py](http://ai.berkeley.edu/projects/release/search/v1/001/docs/ghostAgents.html)`
+[`autograder.py`](autograder.py)   Project autograder
 
-Agents to control ghosts
+[`testParser.py`](testParser.py)   Parses autograder test and solution files
 
-`[keyboardAgents.py](http://ai.berkeley.edu/projects/release/search/v1/001/docs/keyboardAgents.html)`
+[`testClasses.py`](testClasses.py)   General autograding test classes
 
-Keyboard interfaces to control Pacman
+[`test_cases/`](test_cases)   Directory containing the test cases for each question
 
-`[layout.py](http://ai.berkeley.edu/projects/release/search/v1/001/docs/layout.html)`
+[`searchTestClasses.py`](searchTestClasses.py)   Project 1 specific autograding test classes
 
-Code for reading layout files and storing their contents
-
-`[autograder.py](http://ai.berkeley.edu/projects/release/search/v1/001/docs/autograder.html)`
-
-Project autograder
-
-`[testParser.py](http://ai.berkeley.edu/projects/release/search/v1/001/docs/testParser.html)`
-
-Parses autograder test and solution files
-
-`[testClasses.py](http://ai.berkeley.edu/projects/release/search/v1/001/docs/testClasses.html)`
-
-General autograding test classes
-
-`test_cases/`
-
-Directory containing the test cases for each question
-
-`[searchTestClasses.py](http://ai.berkeley.edu/projects/release/search/v1/001/docs/searchTestClasses.html)`
-
-Project 1 specific autograding test classes
-
-**Files to Edit and Submit:** You will fill in portions of `[search.py](http://ai.berkeley.edu/projects/release/search/v1/001/docs/search.html)` and `[searchAgents.py](http://ai.berkeley.edu/projects/release/search/v1/001/docs/searchAgents.html)` during the assignment. You should submit these files with your code and comments. Please _do not_ change the other files in this distribution or submit any of our original files other than these files.
+**Files to Edit and Submit:** You will fill in portions of [`search.py`](http://ai.berkeley.edu/projects/release/search/v1/001/docs/search.html) and [`searchAgents.py`](http://ai.berkeley.edu/projects/release/search/v1/001/docs/searchAgents.html) during the assignment. You should submit these files with your code and comments. Please _do not_ change the other files in this distribution or submit any of our original files other than these files.
 
 **Evaluation:** Your code will be autograded for technical correctness. Please _do not_ change the names of any provided functions or classes within the code, or you will wreak havoc on the autograder. However, the correctness of your implementation -- not the autograder's judgements -- will be the final judge of your score. If necessary, we will review and grade assignments individually to ensure that you receive due credit for your work.
 
 **Academic Dishonesty:** We will be checking your code against other submissions in the class for logical redundancy. If you copy someone else's code and submit it with minor changes, we will know. These cheat detectors are quite hard to fool, so please don't try. We trust you all to submit your own work only; _please_ don't let us down. If you do, we will pursue the strongest consequences available to us.
 
-**Getting Help:** You are not alone! If you find yourself stuck on something, contact the course staff for help. Office hours, section, and the discussion forum are there for your support; please use them. If you can't make our office hours, let us know and we will schedule more. We want these projects to be rewarding and instructional, not frustrating and demoralizing. But, we don't know when or how to help unless you ask.
+**Getting Help:** You are not alone! If you find yourself stuck on something, contact the course staff for help. Office hours, open lab, Red Room, and the discussion Google Group forum are there for your support; please use them. If you can't make our office hours, let us know and we will schedule more. We want these projects to be rewarding and instructional, not frustrating and demoralizing. But, we don't know when or how to help unless you ask.
 
 **Discussion:** Please be careful not to post spoilers.
 
@@ -278,23 +246,12 @@ _**Grading:**_ Your heuristic must be a non-trivial non-negative consistent heur
 
 Number of nodes expanded
 
-Grade
-
-more than 2000
-
-0/3
-
-at most 2000
-
-1/3
-
-at most 1600
-
-2/3
-
-at most 1200
-
-3/3
+| number of nodes expanded  |  Grade |
+| --------------------------| -------|
+| over 2000                 |  0/3   |
+| at most 2000              |  1/3   |
+| at most 1600              |  2/3   |
+| at most 1200              |  3/3   |
 
 _Remember:_ If your heuristic is inconsistent, you will receive _no_ credit, so be careful!
 
@@ -320,29 +277,13 @@ Our UCS agent finds the optimal solution in about 13 seconds, exploring over 16,
 
 Any non-trivial non-negative consistent heuristic will receive 1 point. Make sure that your heuristic returns 0 at every goal state and never returns a negative value. Depending on how few nodes your heuristic expands, you'll get additional points:
 
-Number of nodes expanded
-
-Grade
-
-more than 15000
-
-1/4
-
-at most 15000
-
-2/4
-
-at most 12000
-
-3/4
-
-at most 9000
-
-4/4 (full credit; medium)
-
-at most 7000
-
-5/4 (optional extra credit; hard)
+| number of nodes expanded 	| Grade             	|
+|--------------------------	|-------------------	|
+| more than 15,000         	| 1/4               	|
+| at most 15,000           	| 2/4               	|
+| at most 12,000           	| 3/4               	|
+| at most 9,000            	| 4/4               	|
+| at most 7,000            	| 5/4 (bonus point) 	|
 
 _Remember:_ If your heuristic is inconsistent, you will receive _no_ credit, so be careful! Can you solve `mediumSearch` in a short time? If so, we're either very, very impressed, or your heuristic is inconsistent.
 
