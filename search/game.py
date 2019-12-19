@@ -528,8 +528,11 @@ class Game:
         self.totalAgentTimes = [0 for agent in agents]
         self.totalAgentTimeWarnings = [0 for agent in agents]
         self.agentTimeout = False
-        import cStringIO
-        self.agentOutput = [cStringIO.StringIO() for agent in agents]
+        try:
+            from StringIO import StringIO ## for Python 2
+        except ImportError:
+            from io import StringIO ## for Python 3
+        self.agentOutput = [StringIO() for agent in agents]
 
     def getProgress(self):
         if self.gameOver:

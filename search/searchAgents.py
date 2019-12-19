@@ -80,6 +80,8 @@ class SearchAgent(Agent):
         if fn not in dir(search):
             raise AttributeError(fn + ' is not a search function in search.py.')
         func = getattr(search, fn)
+        print(func)
+        print(func.func_code)
         if 'heuristic' not in func.func_code.co_varnames:
             print('[SearchAgent] using function ' + fn)
             self.searchFunction = func
