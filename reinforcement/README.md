@@ -70,7 +70,7 @@ The code for this project contains the following files, which are available in a
 
 **Files you can ignore:**
 
-[`environment.py`](environment.py)   Abstract class for general reinforcement learning environments. Used by `[gridworld.py](http://ai.berkeley.edu/projects/release/reinforcement/v1/001/docs/gridworld.html)`.
+[`environment.py`](environment.py)   Abstract class for general reinforcement learning environments. Used by [`gridworld.py`](gridworld.py).
 
 [`graphicsGridworldDisplay.py`](graphicsGridworldDisplay.py)   Gridworld graphical display.
 
