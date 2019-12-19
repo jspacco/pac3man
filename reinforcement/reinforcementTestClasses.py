@@ -38,7 +38,7 @@ class ValueIterationTest(testClasses.TestCase):
         if 'noise' in testDict: self.grid.setNoise(float(testDict['noise']))
         if 'livingReward' in testDict: self.grid.setLivingReward(float(testDict['livingReward']))
         maxPreIterations = 10
-        self.numsIterationsForDisplay = range(min(iterations, maxPreIterations))
+        self.numsIterationsForDisplay = list(range(min(iterations, maxPreIterations)))
         self.testOutFile = testDict['test_out_file']
         if maxPreIterations < iterations:
             self.numsIterationsForDisplay.append(iterations)
@@ -213,7 +213,7 @@ class ApproximateQLearningTest(testClasses.TestCase):
         self.opts = {'actionFn': self.env.getPossibleActions, 'epsilon': self.epsilon, 'gamma': self.discount, 'alpha': self.learningRate}
         numExperiences = int(testDict['numExperiences'])
         maxPreExperiences = 10
-        self.numsExperiencesForDisplay = range(min(numExperiences, maxPreExperiences))
+        self.numsExperiencesForDisplay = list(range(min(numExperiences, maxPreExperiences)))
         self.testOutFile = testDict['test_out_file']
         if maxPreExperiences < numExperiences:
             self.numsExperiencesForDisplay.append(numExperiences)
@@ -373,7 +373,7 @@ class QLearningTest(testClasses.TestCase):
         self.opts = {'actionFn': self.env.getPossibleActions, 'epsilon': self.epsilon, 'gamma': self.discount, 'alpha': self.learningRate}
         numExperiences = int(testDict['numExperiences'])
         maxPreExperiences = 10
-        self.numsExperiencesForDisplay = range(min(numExperiences, maxPreExperiences))
+        self.numsExperiencesForDisplay = list(range(min(numExperiences, maxPreExperiences)))
         self.testOutFile = testDict['test_out_file']
         if maxPreExperiences < numExperiences:
             self.numsExperiencesForDisplay.append(numExperiences)

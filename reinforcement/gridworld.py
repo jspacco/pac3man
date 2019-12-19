@@ -335,7 +335,7 @@ def getUserAction(state, actionFunction):
         action = actions[0]
     return action
 
-def printString(x): print x
+def printString(x): print(x)
 
 def runEpisode(agent, environment, discount, decision, display, message, pause, episode):
     returns = 0
@@ -430,7 +430,7 @@ def parseOptions():
     opts, args = optParser.parse_args()
 
     if opts.manual and opts.agent != 'q':
-        print '## Disabling Agents in Manual Mode (-m) ##'
+        print('## Disabling Agents in Manual Mode (-m) ##')
         opts.agent = None
 
     # MANAGE CONFLICTS
@@ -562,17 +562,17 @@ if __name__ == '__main__':
 
     # RUN EPISODES
     if opts.episodes > 0:
-        print
-        print "RUNNING", opts.episodes, "EPISODES"
-        print
+        print()
+        print("RUNNING", opts.episodes, "EPISODES")
+        print()
     returns = 0
     for episode in range(1, opts.episodes+1):
         returns += runEpisode(a, env, opts.discount, decisionCallback, displayCallback, messageCallback, pauseCallback, episode)
     if opts.episodes > 0:
-        print
-        print "AVERAGE RETURNS FROM START STATE: "+str((returns+0.0) / opts.episodes)
-        print
-        print
+        print()
+        print("AVERAGE RETURNS FROM START STATE: "+str((returns+0.0) / opts.episodes))
+        print()
+        print()
 
     # DISPLAY POST-LEARNING VALUES / Q-VALUES
     if opts.agent == 'q' and not opts.manual:
