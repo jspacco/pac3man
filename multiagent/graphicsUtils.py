@@ -372,7 +372,7 @@ def move_by(object, x, y=None,
 
 def writePostscript(filename):
     "Writes the current canvas to a postscript file."
-    psfile = file(filename, 'w')
+    psfile = open(filename, 'w')
     psfile.write(_canvas.postscript(pageanchor='sw',
                      y='0.c',
                      x='0.c'))
@@ -398,5 +398,6 @@ if __name__ == '__main__':
     ghost_shape = [(x * 10 + 20, y * 10 + 20) for x, y in ghost_shape]
     g = polygon(ghost_shape, formatColor(1, 1, 1))
     move_to(g, (50, 50))
-    circle((150, 150), 20, formatColor(0.7, 0.3, 0.0), endpoints=[15, - 15])
+    # TODO: fix circle
+    #circle((150, 150), 20, formatColor(0.7, 0.3, 0.0), endpoints=[15, - 15])
     sleep(2)
