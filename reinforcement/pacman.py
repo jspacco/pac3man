@@ -574,7 +574,7 @@ def readCommand( argv ):
     # Special case: recorded games don't use the runGames method or args structure
     if options.gameToReplay != None:
         print('Replaying recorded game %s.' % options.gameToReplay)
-        import cPickle
+        import _pickle as cPickle
         f = open(options.gameToReplay)
         try: recorded = cPickle.load(f)
         finally: f.close()
@@ -647,9 +647,10 @@ def runGames( layout, pacman, ghosts, display, numGames, record, numTraining = 0
         if not beQuiet: games.append(game)
 
         if record:
-            import time, cPickle
+            import time
+            import _pickle as cPickle
             fname = ('recorded-game-%d' % (i + 1)) +  '-'.join([str(t) for t in time.localtime()[1:6]])
-            f = file(fname, 'w')
+            f = open(fname, 'w')
             components = {'layout': layout, 'actions': game.moveHistory}
             cPickle.dump(components, f)
             f.close()

@@ -13,6 +13,7 @@
 
 
 import util
+from functools import reduce
 
 class TextGridworldDisplay:
 
@@ -27,7 +28,7 @@ class TextGridworldDisplay:
 
     def displayValues(self, agent, currentState = None, message = None):
         if message != None:
-            print message
+            print(message)
         values = util.Counter()
         policy = {}
         states = self.gridworld.getStates()
@@ -37,11 +38,11 @@ class TextGridworldDisplay:
         prettyPrintValues(self.gridworld, values, policy, currentState)
 
     def displayNullValues(self, agent, currentState = None, message = None):
-        if message != None: print message
+        if message != None: print(message)
         prettyPrintNullValues(self.gridworld, currentState)
 
     def displayQValues(self, agent, currentState = None, message = None):
-        if message != None: print message
+        if message != None: print(message)
         qValues = util.Counter()
         states = self.gridworld.getStates()
         for state in states:
@@ -103,7 +104,7 @@ def prettyPrintValues(gridWorld, values, policy=None, currentState = None):
     colLabels = [str(colNum) for colNum in range(numCols)]
     colLabels.insert(0,' ')
     finalRows = [colLabels] + newRows
-    print indent(finalRows,separateRows=True,delim='|', prefix='|',postfix='|', justify='center',hasHeader=True)
+    print(indent(finalRows,separateRows=True,delim='|', prefix='|',postfix='|', justify='center',hasHeader=True))
 
 
 def prettyPrintNullValues(gridWorld, currentState = None):
@@ -171,7 +172,7 @@ def prettyPrintNullValues(gridWorld, currentState = None):
     colLabels = [str(colNum) for colNum in range(numCols)]
     colLabels.insert(0,' ')
     finalRows = [colLabels] + newRows
-    print indent(finalRows,separateRows=True,delim='|', prefix='|',postfix='|', justify='center',hasHeader=True)
+    print(indent(finalRows,separateRows=True,delim='|', prefix='|',postfix='|', justify='center',hasHeader=True))
 
 def prettyPrintQValues(gridWorld, qValues, currentState=None):
     grid = gridWorld.grid
@@ -242,7 +243,7 @@ def prettyPrintQValues(gridWorld, qValues, currentState=None):
     colLabels.insert(0,' ')
     finalRows = [colLabels] + newRows
 
-    print indent(finalRows,separateRows=True,delim='|',prefix='|',postfix='|', justify='center',hasHeader=True)
+    print(indent(finalRows,separateRows=True,delim='|',prefix='|',postfix='|', justify='center',hasHeader=True))
 
 def border(text):
     length = len(text)
@@ -254,7 +255,11 @@ def border(text):
 # Indenting code based on a post from George Sakkis
 # (http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/267662)
 
-import cStringIO,operator
+try:
+    from StringIO import StringIO ## for Python 2
+except ImportError:
+    from io import StringIO
+import operator
 
 def indent(rows, hasHeader=False, headerChar='-', delim=' | ', justify='left',
            separateRows=False, prefix='', postfix='', wrapfunc=lambda x:x):
@@ -286,7 +291,7 @@ def indent(rows, hasHeader=False, headerChar='-', delim=' | ', justify='left',
                                  len(delim)*(len(maxWidths)-1))
     # select the appropriate justify method
     justify = {'center':str.center, 'right':str.rjust, 'left':str.ljust}[justify.lower()]
-    output=cStringIO.StringIO()
+    output=StringIO()
     if separateRows: print >> output, rowSeparator
     for physicalRows in logicalRows:
         for row in physicalRows:
@@ -302,7 +307,7 @@ def wrap_always(text, width):
     """A simple word-wrap function that wraps text on exactly width characters.
        It doesn't split the text in words."""
     return '\n'.join([ text[width*i:width*(i+1)] \
-                       for i in xrange(int(math.ceil(1.*len(text)/width))) ])
+                       for i in range(int(math.ceil(1.*len(text)/width))) ])
 
 
 # TEST OF DISPLAY CODE
@@ -310,8 +315,8 @@ def wrap_always(text, width):
 if __name__ == '__main__':
     import gridworld, util
 
-    grid = gridworld.getCliffGrid3()
-    print grid.getStates()
+    grid = gridworld.getCliffGrid2()
+    print(grid.getStates())
 
     policy = dict([(state,'east') for state in grid.getStates()])
     values = util.Counter(dict([(state,1000.23) for state in grid.getStates()]))
