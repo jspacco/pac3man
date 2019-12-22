@@ -43,7 +43,8 @@ class Babbler:
         for each line of an input file. We are assuming that the input data
         has already been pre-processed so that each sentence is on a separate line.
         """
-        pass
+        for line in [line.rstrip().lower() for line in open(filename, errors='ignore').readlines()]:
+            self.add_sentence(line)
     
 
     def get_starters(self):
