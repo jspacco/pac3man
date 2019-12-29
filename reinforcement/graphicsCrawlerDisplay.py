@@ -217,7 +217,7 @@ class Application:
             self.robotEnvironment.reset()
             state = self.robotEnvironment.getCurrentState()
             actions = self.robotEnvironment.getPossibleActions(state)
-            print 'Reset!'
+            print('Reset!')
         action = self.learner.getAction(state)
         if action == None:
             raise 'None action returned: Code Not Complete'

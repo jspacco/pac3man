@@ -14,6 +14,7 @@
 
 import util
 from graphicsUtils import *
+from functools import reduce
 
 class GraphicsGridworldDisplay:
 
