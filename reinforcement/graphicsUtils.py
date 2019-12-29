@@ -292,13 +292,13 @@ def keys_pressed(d_o_e=lambda arg: _root_window.dooneevent(arg),
     d_o_e(d_w)
     if _got_release:
         d_o_e(d_w)
-    return _keysdown.keys()
+    return keys_waiting()
 
 def keys_waiting():
     global _keyswaiting
     keys = _keyswaiting.keys()
     _keyswaiting = {}
-    return keys
+    return list(keys)
 
 # Block for a list of keys...
 
