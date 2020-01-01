@@ -319,8 +319,8 @@ _Note:_ Approximate Q-learning assumes the existence of a feature function f(s,a
 
 The approximate Q-function takes the following form
 
-\\(Q(s,a) = \\sum\\limits\_{i=1}^n f\_i(s,a) w\_i \\)
-
+<!-- \\(Q(s,a) = \\sum\\limits\_{i=1}^n f\_i(s,a) w\_i \\) -->
+![eqn](https://latex.codecogs.com/gif.latex?%28Q%28s%2Ca%29%20%3D%20%5Csum%5Climits_%7Bi%3D1%7D%5En%20f_i%28s%2Ca%29%20w_i%29)
   
 where each weight wi is associated with a particular feature fi(s,a). In your code, you should implement the weight vector as a dictionary mapping features (which the feature extractors will return) to weight values. You will update your weight vectors similarly to how you updated Q-values:
 
