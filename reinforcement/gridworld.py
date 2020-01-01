@@ -348,12 +348,12 @@ def runEpisode(agent, environment, discount, decision, display, message, pause, 
         # DISPLAY CURRENT STATE
         state = environment.getCurrentState()
         display(state)
-        pause()
 
         # END IF IN A TERMINAL STATE
         actions = environment.getPossibleActions(state)
         if len(actions) == 0:
             message("EPISODE "+str(episode)+" COMPLETE: RETURN WAS "+str(returns)+"\n")
+            pause()
             return returns
 
         # GET ACTION (USUALLY FROM AGENT)
