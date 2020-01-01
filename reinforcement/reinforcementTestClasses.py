@@ -123,7 +123,7 @@ class ValueIterationTest(testClasses.TestCase):
     def runAgent(self, moduleDict, numIterations):
         agent = moduleDict['valueIterationAgents'].ValueIterationAgent(self.grid, discount=self.discount, iterations=numIterations)
         states = self.grid.getStates()
-        actions = list(reduce(lambda a, b: set(a).union(b), [self.grid.getPossibleActions(state) for state in states]))
+        actions = list(reduce(lambda a, b: set(a).union(b), [self.grid.getPossibleActions(state) for state in states], set()))
         values = {}
         qValues = {}
         policy = {}
@@ -291,7 +291,7 @@ class ApproximateQLearningTest(testClasses.TestCase):
             (endState, reward) = self.env.getRandomNextState(startState, action, randObj=randObj)
             lastExperience = (startState, action, endState, reward)
             agent.update(*lastExperience)
-        actions = list(reduce(lambda a, b: set(a).union(b), [self.grid.getPossibleActions(state) for state in states]))
+        actions = list(reduce(lambda a, b: set(a).union(b), [self.grid.getPossibleActions(state) for state in states], set()))
         qValues = {}
         weights = agent.getWeights()
         for state in states:
@@ -454,7 +454,7 @@ class QLearningTest(testClasses.TestCase):
 
     def runAgent(self, moduleDict, numExperiences):
         agent = moduleDict['qlearningAgents'].QLearningAgent(**self.opts)
-        states = filter(lambda state : len(self.grid.getPossibleActions(state)) > 0, self.grid.getStates())
+        states = list(filter(lambda state : len(self.grid.getPossibleActions(state)) > 0, self.grid.getStates()))
         sorted(states)
         randObj = FixedRandom().random
         # choose a random start state and a random possible action from that state
@@ -466,7 +466,7 @@ class QLearningTest(testClasses.TestCase):
             (endState, reward) = self.env.getRandomNextState(startState, action, randObj=randObj)
             lastExperience = (startState, action, endState, reward)
             agent.update(*lastExperience)
-        actions = list(reduce(lambda a, b: set(a).union(b), [self.grid.getPossibleActions(state) for state in states]))
+        actions = list(reduce(lambda a, b: set(a).union(b), [self.grid.getPossibleActions(state) for state in states], set()))
         values = {}
         qValues = {}
         policy = {}
@@ -496,7 +496,7 @@ class QLearningTest(testClasses.TestCase):
             row = []
             for x in range(self.grid.grid.width):
                 if (x, y) in states:
-                    value = elements[(x, y)]
+                    value = elements.get((x, y), None)
                     if value is None:
                         row.append('   illegal')
                     else:
