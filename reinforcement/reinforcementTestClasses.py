@@ -570,7 +570,7 @@ class EpsilonGreedyTest(testClasses.TestCase):
 
     def runAgent(self, moduleDict):
         agent = moduleDict['qlearningAgents'].QLearningAgent(**self.opts)
-        states = filter(lambda state : len(self.grid.getPossibleActions(state)) > 0, self.grid.getStates())
+        states = list(filter(lambda state : len(self.grid.getPossibleActions(state)) > 0, self.grid.getStates()))
         sorted(states)
         randObj = FixedRandom().random
         # choose a random start state and a random possible action from that state
