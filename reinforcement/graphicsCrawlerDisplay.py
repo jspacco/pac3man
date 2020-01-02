@@ -22,7 +22,7 @@
 # Abbeel in Spring 2013.
 # For more info, see http://inst.eecs.berkeley.edu/~cs188/pacman/pacman.html
 
-import Tkinter
+import tkinter
 import qlearningAgents
 import time
 import threading
@@ -93,57 +93,57 @@ class Application:
 #        self.setupSimulationButtons(win)
 
          ## Canvas ##
-        self.canvas = Tkinter.Canvas(root, height=200, width=1000)
+        self.canvas = tkinter.Canvas(root, height=200, width=1000)
         self.canvas.grid(row=2,columnspan=10)
 
     def setupAlphaButtonAndLabel(self, win):
-        self.alpha_minus = Tkinter.Button(win,
+        self.alpha_minus = tkinter.Button(win,
         text="-",command=(lambda: self.incrementAlpha(self.dec)))
         self.alpha_minus.grid(row=1, column=3, padx=10)
 
         self.alpha = self.sigmoid(self.al)
-        self.alpha_label = Tkinter.Label(win, text='Learning Rate: %.3f' % (self.alpha))
+        self.alpha_label = tkinter.Label(win, text='Learning Rate: %.3f' % (self.alpha))
         self.alpha_label.grid(row=1, column=4)
 
-        self.alpha_plus = Tkinter.Button(win,
+        self.alpha_plus = tkinter.Button(win,
         text="+",command=(lambda: self.incrementAlpha(self.inc)))
         self.alpha_plus.grid(row=1, column=5, padx=10)
 
     def setUpGammaButtonAndLabel(self, win):
-        self.gamma_minus = Tkinter.Button(win,
+        self.gamma_minus = tkinter.Button(win,
         text="-",command=(lambda: self.incrementGamma(self.dec)))
         self.gamma_minus.grid(row=1, column=0, padx=10)
 
         self.gamma = self.sigmoid(self.ga)
-        self.gamma_label = Tkinter.Label(win, text='Discount: %.3f' % (self.gamma))
+        self.gamma_label = tkinter.Label(win, text='Discount: %.3f' % (self.gamma))
         self.gamma_label.grid(row=1, column=1)
 
-        self.gamma_plus = Tkinter.Button(win,
+        self.gamma_plus = tkinter.Button(win,
         text="+",command=(lambda: self.incrementGamma(self.inc)))
         self.gamma_plus.grid(row=1, column=2, padx=10)
 
     def setupEpsilonButtonAndLabel(self, win):
-        self.epsilon_minus = Tkinter.Button(win,
+        self.epsilon_minus = tkinter.Button(win,
         text="-",command=(lambda: self.incrementEpsilon(self.dec)))
         self.epsilon_minus.grid(row=0, column=3)
 
         self.epsilon = self.sigmoid(self.ep)
-        self.epsilon_label = Tkinter.Label(win, text='Epsilon: %.3f' % (self.epsilon))
+        self.epsilon_label = tkinter.Label(win, text='Epsilon: %.3f' % (self.epsilon))
         self.epsilon_label.grid(row=0, column=4)
 
-        self.epsilon_plus = Tkinter.Button(win,
+        self.epsilon_plus = tkinter.Button(win,
         text="+",command=(lambda: self.incrementEpsilon(self.inc)))
         self.epsilon_plus.grid(row=0, column=5)
 
     def setupSpeedButtonAndLabel(self, win):
-        self.speed_minus = Tkinter.Button(win,
+        self.speed_minus = tkinter.Button(win,
         text="-",command=(lambda: self.incrementSpeed(.5)))
         self.speed_minus.grid(row=0, column=0)
 
-        self.speed_label = Tkinter.Label(win, text='Step Delay: %.5f' % (self.tickTime))
+        self.speed_label = tkinter.Label(win, text='Step Delay: %.5f' % (self.tickTime))
         self.speed_label.grid(row=0, column=1)
 
-        self.speed_plus = Tkinter.Button(win,
+        self.speed_plus = tkinter.Button(win,
         text="+",command=(lambda: self.incrementSpeed(2)))
         self.speed_plus.grid(row=0, column=2)
 
@@ -313,7 +313,7 @@ class Application:
 
 def run():
     global root
-    root = Tkinter.Tk()
+    root = tkinter.Tk()
     root.title( 'Crawler GUI' )
     root.resizable( 0, 0 )
 
