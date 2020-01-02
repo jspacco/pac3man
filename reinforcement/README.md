@@ -42,7 +42,7 @@ It can be run for one particular question, such as q2, by:
 
 It can be run for one particular test by commands of the form:
 
-`python autograder.py -t test\_cases/q2/1-bridge-grid`
+`python autograder.py -t test_cases/q2/1-bridge-grid`
 
 See the autograder tutorial in Project 0 for more information about using the autograder.
 
