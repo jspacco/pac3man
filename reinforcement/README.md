@@ -320,20 +320,22 @@ _Note:_ Approximate Q-learning assumes the existence of a feature function f(s,a
 The approximate Q-function takes the following form
 
 <!-- \\(Q(s,a) = \\sum\\limits\_{i=1}^n f\_i(s,a) w\_i \\) -->
-![eqn](https://latex.codecogs.com/gif.latex?%28Q%28s%2Ca%29%20%3D%20%5Csum%5Climits_%7Bi%3D1%7D%5En%20f_i%28s%2Ca%29%20w_i%29)
+![eqn](https://latex.codecogs.com/gif.latex?%5Cfn_cm%20Q%28s%2Ca%29%20%3D%20%5Csum%5Climits_%7Bi%3D1%7D%5En%20f_i%28s%2Ca%29%20w_i)
   
 where each weight wi is associated with a particular feature fi(s,a). In your code, you should implement the weight vector as a dictionary mapping features (which the feature extractors will return) to weight values. You will update your weight vectors similarly to how you updated Q-values:
 
-\\(w\_i \\leftarrow w\_i + \\alpha \\cdot difference \\cdot f\_i(s,a) \\)
+<!-- \\(w\_i \\leftarrow w\_i + \\alpha \\cdot difference \\cdot f\_i(s,a) \\) -->
+![eqn](https://latex.codecogs.com/gif.latex?%5Cfn_cm%20w_i%20%5Cleftarrow%20w_i%20&plus;%20%5Calpha%20%5Ccdot%20difference%20%5Ccdot%20f_i%28s%2Ca%29%20)
 
-\\( difference = (r + \\gamma \\max\\limits\_{a'} Q(s', a')) - Q(s,a) \\)
+<!-- \\( difference = (r + \\gamma \\max\\limits\_{a'} Q(s', a')) - Q(s,a) \\) -->
+![eqn](https://latex.codecogs.com/gif.latex?%5Cfn_cm%20%5C%20difference%20%3D%20%28r%20&plus;%20%5Cgamma%20%5Cmax%5Climits_%7Ba%27%7D%20Q%28s%27%2C%20a%27%29%29%20-%20Q%28s%2Ca%29%20)
 
   
-Note that the \\(difference\\) term is the same as in normal Q-learning, and \\( r \\) is the experienced reward.
+Note that the `difference` term is the same as in normal Q-learning, and `r` is the experienced reward.
 
 By default, `ApproximateQAgent` uses the `IdentityExtractor`, which assigns a single feature to every `(state,action)` pair. With this feature extractor, your approximate Q-learning agent should work identically to `PacmanQAgent`. You can test this with the following command:
 
-python pacman.py -p ApproximateQAgent -x 2000 -n 2010 -l smallGrid 
+`python pacman.py -p ApproximateQAgent -x 2000 -n 2010 -l smallGrid `
 
 _Important:_`ApproximateQAgent` is a subclass of `QLearningAgent`, and it therefore shares several methods like `getAction`. Make sure that your methods in `QLearningAgent` call `getQValue` instead of accessing Q-values directly, so that when you override `getQValue` in your approximate agent, the new approximate q-values are used to compute actions.
 
