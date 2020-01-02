@@ -311,6 +311,16 @@ def getMazeGrid():
             ['S',' ',' ',' ']]
     return Gridworld(grid)
 
+def getVerticalBridgeGrid():
+    grid = [['#', 10, '#'],
+            [-100, ' ', -100],
+            [-100, ' ', -100],
+            [-100, ' ', -100],
+            [-100, ' ', -100],
+            [-100, 'S', -100],
+            ['#',  1, '#']]
+    return Gridworld(grid)
+
 
 
 def getUserAction(state, actionFunction):
@@ -403,7 +413,7 @@ def parseOptions():
                          metavar="K", help='Number of epsiodes of the MDP to run (default %default)')
     optParser.add_option('-g', '--grid',action='store',
                          metavar="G", type='string',dest='grid',default="BookGrid",
-                         help='Grid to use (case sensitive; options are BookGrid, BridgeGrid, CliffGrid, MazeGrid, default %default)' )
+                         help='Grid to use (case sensitive; options are BookGrid, BridgeGrid, CliffGrid, MazeGrid, VerticalBridgeGrid, default %default)' )
     optParser.add_option('-w', '--windowSize', metavar="X", type='int',dest='gridSize',default=150,
                          help='Request a window width of X pixels *per grid cell* (default %default)')
     optParser.add_option('-a', '--agent',action='store', metavar="A",
@@ -452,6 +462,9 @@ if __name__ == '__main__':
     ###########################
     # GET THE GRIDWORLD
     ###########################
+
+    if opts.grid == 'VerticalBridgeGrid':
+        opts.gridSize = 120
 
     import gridworld
     mdpFunction = getattr(gridworld, "get"+opts.grid)
