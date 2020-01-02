@@ -456,7 +456,10 @@ def parseOptions():
 
 
 if __name__ == '__main__':
+    main(sys.argv)
 
+def main(myargs):
+    sys.argv = myargs.split()
     opts = parseOptions()
 
     ###########################

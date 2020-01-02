@@ -324,7 +324,10 @@ def getDisplay(graphicsByDefault, options=None):
 
 
 if __name__ == '__main__':
-    options = readCommand(sys.argv)
+    main(sys.argv)
+
+def main(args):
+    options = readCommand(args.split())
     if options.generateSolutions:
         confirmGenerate()
     codePaths = options.studentCode.split(',')
