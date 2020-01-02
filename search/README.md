@@ -90,7 +90,7 @@ The code for this project consists of several Python files, some of which you wi
 
 * * *
 
-### Welcome to Pacman
+### <a name="Welcome"></a> Welcome to Pacman 
 
 After downloading the code (`[search.zip](http://ai.berkeley.edu/projects/release/search/v1/001/search.zip)`), unzipping it, and changing to the directory, you should be able to play a game of Pacman by typing the following at the command line:
 
