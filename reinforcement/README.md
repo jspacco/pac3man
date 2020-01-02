@@ -315,20 +315,20 @@ Pacman fails to win on larger layouts because each board configuration is a sepa
 
 Implement an approximate Q-learning agent that learns weights for features of states, where many states might share the same features. Write your implementation in `ApproximateQAgent` class in `qlearningAgents.py`, which is a subclass of `PacmanQAgent`.
 
-_Note:_ Approximate Q-learning assumes the existence of a feature function f(s,a) over state and action pairs, which yields a vector f1(s,a) .. fi(s,a) .. fn(s,a) of feature values. We provide feature functions for you in `featureExtractors.py`. Feature vectors are `util.Counter` (like a dictionary) objects containing the non-zero pairs of features and values; all omitted features have value zero.
+_Note:_ Approximate Q-learning assumes the existence of a feature function f(s,a) over state and action pairs, which yields a vector f<sub>1</sub>(s,a) .. f<sub>i</sub>(s,a) .. f<sub>n</sub>(s,a) of feature values. We provide feature functions for you in `featureExtractors.py`. Feature vectors are `util.Counter` (like a dictionary) objects containing the non-zero pairs of features and values; all omitted features have value zero.
 
 The approximate Q-function takes the following form
 
 <!-- \\(Q(s,a) = \\sum\\limits\_{i=1}^n f\_i(s,a) w\_i \\) -->
-![eqn](https://latex.codecogs.com/gif.latex?%5Cfn_cm%20Q%28s%2Ca%29%20%3D%20%5Csum%5Climits_%7Bi%3D1%7D%5En%20f_i%28s%2Ca%29%20w_i)
+![Approximate QL](https://latex.codecogs.com/gif.latex?%5Cfn_cm%20Q%28s%2Ca%29%20%3D%20%5Csum%5Climits_%7Bi%3D1%7D%5En%20f_i%28s%2Ca%29%20w_i)
   
-where each weight wi is associated with a particular feature fi(s,a). In your code, you should implement the weight vector as a dictionary mapping features (which the feature extractors will return) to weight values. You will update your weight vectors similarly to how you updated Q-values:
+where each weight w<sub>i</sub> is associated with a particular feature f<sub>i</sub>(s,a). In your code, you should implement the weight vector as a dictionary mapping features (which the feature extractors will return) to weight values. You will update your weight vectors similarly to how you updated Q-values:
 
 <!-- \\(w\_i \\leftarrow w\_i + \\alpha \\cdot difference \\cdot f\_i(s,a) \\) -->
-![eqn](https://latex.codecogs.com/gif.latex?%5Cfn_cm%20w_i%20%5Cleftarrow%20w_i%20&plus;%20%5Calpha%20%5Ccdot%20difference%20%5Ccdot%20f_i%28s%2Ca%29%20)
+![Approximate QL weights](https://latex.codecogs.com/gif.latex?%5Cfn_cm%20w_i%20%5Cleftarrow%20w_i%20&plus;%20%5Calpha%20%5Ccdot%20difference%20%5Ccdot%20f_i%28s%2Ca%29%20)
 
 <!-- \\( difference = (r + \\gamma \\max\\limits\_{a'} Q(s', a')) - Q(s,a) \\) -->
-![eqn](https://latex.codecogs.com/gif.latex?%5Cfn_cm%20%5C%20difference%20%3D%20%28r%20&plus;%20%5Cgamma%20%5Cmax%5Climits_%7Ba%27%7D%20Q%28s%27%2C%20a%27%29%29%20-%20Q%28s%2Ca%29%20)
+![Approximate QL updates](https://latex.codecogs.com/gif.latex?%5Cfn_cm%20%5C%20difference%20%3D%20%28r%20&plus;%20%5Cgamma%20%5Cmax%5Climits_%7Ba%27%7D%20Q%28s%27%2C%20a%27%29%29%20-%20Q%28s%2Ca%29%20)
 
   
 Note that the `difference` term is the same as in normal Q-learning, and `r` is the experienced reward.
