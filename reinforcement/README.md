@@ -104,7 +104,7 @@ The code for this project contains the following files, which are available in a
 
 * * *
 
-### MDPs
+### <a name="Welcome"></a> MDPs
 
 To get started, run Gridworld in manual control mode, which uses the arrow keys:
 
@@ -130,7 +130,7 @@ As in Pacman, positions are represented by `(x,y)` Cartesian coordinates and any
 
 * * *
 
-### Question 1 (6 points): Value Iteration
+### <a name="Q1"></a> Question 1 (6 points): Value Iteration
 
 Write a value iteration agent in `ValueIterationAgent`, which has been partially specified for you in `valueIterationAgents.py`. Your value iteration agent is an offline planner, not a reinforcement learning agent, and so the relevant training option is the number of iterations of value iteration it should run (option `-i`) in its initial planning phase. `ValueIterationAgent` takes an MDP on construction and runs value iteration for the specified number of iterations before the constructor returns.
 
@@ -169,7 +169,7 @@ _Grading:_ Your value iteration agent will be graded on a new grid. We will chec
 
 * * *
 
-### Question 2 (1 point): Bridge Crossing Analysis
+### <a name="Q2"></a> Question 2 (1 point): Bridge Crossing Analysis
 
 `BridgeGrid` is a grid world map with the a low-reward terminal state and a high-reward terminal state separated by a narrow "bridge", on either side of which is a chasm of high negative reward. The agent starts near the low-reward state. With the default discount of 0.9 and the default noise of 0.2, the optimal policy does not cross the bridge. Change only ONE of the discount and noise parameters so that the optimal policy causes the agent to attempt to cross the bridge. Put your answer in `question2()` of `analysis.py`. (Noise refers to how often an agent ends up in an unintended successor state when they perform an action.) The default corresponds to:
 
@@ -183,7 +183,7 @@ _Grading:_ We will check that you only changed one of the given parameters, and 
 
 * * *
 
-### Question 3 (5 points): Policies
+### <a name="Q3"></a> Question 3 (5 points): Policies
 
 Consider the `DiscountGrid` layout, shown below. This grid has two terminal states with positive payoff (in the middle row), a close exit with payoff +1 and a distant exit with payoff +10. The bottom row of the grid consists of terminal states with negative payoff (shown in red); each state in this "cliff" region has payoff -10. The starting state is the yellow square. We distinguish between two types of paths: (1) paths that "risk the cliff" and travel near the bottom row of the grid; these paths are shorter but risk earning a large negative payoff, and are represented by the red arrow in the figure below. (2) paths that "avoid the cliff" and travel along the top edge of the grid. These paths are longer but are less likely to incur huge negative payoffs. These paths are represented by the green arrow in the figure below.
 
@@ -213,7 +213,7 @@ _Grading:_ We will check that the desired policy is returned in each case.
 
 * * *
 
-### Question 4 (5 points): Q-Learning
+### <a name="Q4"></a> Question 4 (5 points): Q-Learning
 
 Note that your value iteration agent does not actually learn from experience. Rather, it ponders its MDP model to arrive at a complete policy before ever interacting with a real environment. When it does interact with the environment, it simply follows the precomputed policy (e.g. it becomes a reflex agent). This distinction may be subtle in a simulated environment like a Gridword, but it's very important in the real world, where the real MDP is not available.
 
@@ -237,7 +237,7 @@ _Grading:_ We will run your Q-learning agent and check that it learns the same Q
 
 * * *
 
-### Question 5 (3 points): Epsilon Greedy
+### <a name="Q5"></a> Question 5 (3 points): Epsilon Greedy
 
 Complete your Q-learning agent by implementing epsilon-greedy action selection in `getAction`, meaning it chooses random actions an epsilon fraction of the time, and follows its current best Q-values otherwise. Note that choosing a random action may result in choosing the best action - that is, you should not choose a random sub-optimal action, but rather _any_ random legal action.
 
@@ -261,7 +261,7 @@ This will invoke the crawling robot from class using your Q-learner. Play around
 
 * * *
 
-### Question 6 (1 point): Bridge Crossing Revisited
+### <a name="Q6"></a> Question 6 (1 point): Bridge Crossing Revisited
 
 First, train a completely random Q-learner with the default learning rate on the noiseless BridgeGrid for 50 episodes and observe whether it finds the optimal policy.
 
@@ -277,7 +277,7 @@ To grade your answer, run the autograder:
 
 * * *
 
-### Question 7 (1 point): Q-Learning and Pacman
+### <a name="Q7"></a> Question 7 (1 point): Q-Learning and Pacman
 
 Time to play some Pacman! Pacman will play games in two phases. In the first phase, _training_, Pacman will begin to learn about the values of positions and actions. Because it takes a very long time to learn accurate Q-values even for tiny grids, Pacman's training games run in quiet mode by default, with no GUI (or console) display. Once Pacman's training is complete, he will enter _testing_ mode. When testing, Pacman's `self.epsilon` and `self.alpha` will be set to 0.0, effectively stopping Q-learning and disabling exploration, in order to allow Pacman to exploit his learned policy. Test games are shown in the GUI by default. Without any code changes you should be able to run Q-learning Pacman for very tiny grids as follows:
 
@@ -311,7 +311,7 @@ Pacman fails to win on larger layouts because each board configuration is a sepa
 
 * * *
 
-### Question 8 (3 points): Approximate Q-Learning
+### <a name="Q8"></a> Question 8 (3 points): Approximate Q-Learning
 
 Implement an approximate Q-learning agent that learns weights for features of states, where many states might share the same features. Write your implementation in `ApproximateQAgent` class in `qlearningAgents.py`, which is a subclass of `PacmanQAgent`.
 
