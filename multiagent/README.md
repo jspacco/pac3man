@@ -95,7 +95,7 @@ The code for this project contains the following files, available as a [zip arch
 
 * * *
 
-### Multi-Agent Pacman
+### <a name="Welcome"></a> Multi-Agent Pacman
 
 First, play a game of classic Pacman:
 
@@ -113,7 +113,7 @@ Inspect its code (in `multiAgents.py`) and make sure you understand what it's do
 
 * * *
 
-### Question 1 (4 points): Reflex Agent
+### <a name="Q1"></a> Question 1 (4 points): Reflex Agent
 
 Improve the `ReflexAgent` in `multiAgents.py` to play respectably. The provided reflex agent code provides some helpful examples of methods that query the `GameState` for information. A capable reflex agent will have to consider both food locations and ghost locations to perform well. Your agent should easily and reliably clear the `testClassic` layout:
 
@@ -145,7 +145,7 @@ Don't spend too much time on this question, though, as the meat of the project l
 
 * * *
 
-### Question 2 (5 points): Minimax
+### <a name="Q2"></a> Question 2 (5 points): Minimax
 
 Now you will write an adversarial search agent in the provided `MinimaxAgent` class stub in `multiAgents.py`. Your minimax agent should work with any number of ghosts, so you'll have to write an algorithm that is slightly more general than what you've previously seen in lecture. In particular, your minimax tree will have multiple min layers (one for each ghost) for every max layer.
 
@@ -180,7 +180,7 @@ _**Hints and Observations**_
 
 * * *
 
-### Question 3 (5 points): Alpha-Beta Pruning
+### <a name="Q3"></a> Question 3 (5 points): Alpha-Beta Pruning
 
 Make a new agent that uses alpha-beta pruning to more efficiently explore the minimax tree, in `AlphaBetaAgent`. Again, your algorithm will be slightly more general than the pseudocode from lecture, so part of the challenge is to extend the alpha-beta pruning logic appropriately to multiple minimizer agents.
 
@@ -210,7 +210,7 @@ The correct implementation of alpha-beta pruning will lead to Pacman losing some
 
 * * *
 
-### Question 4 (5 points): Expectimax
+### <a name="Q4"></a> Question 4 (5 points): Expectimax
 
 Minimax and alpha-beta are great, but they both assume that you are playing against an adversary who makes optimal decisions. As anyone who has ever won tic-tac-toe can tell you, this is not always the case. In this question you will implement the `ExpectimaxAgent`, which is useful for modeling probabilistic behavior of agents who may make suboptimal choices.
 
@@ -238,7 +238,7 @@ The correct implementation of expectimax will lead to Pacman losing some of the 
 
 * * *
 
-### Question 5 (6 points): Evaluation Function
+### <a name="Q5"></a> Question 5 (6 points): Evaluation Function
 
 Write a better evaluation function for pacman in the provided function `betterEvaluationFunction`. The evaluation function should evaluate states, rather than actions like your reflex agent evaluation function did. You may use any tools at your disposal for evaluation, including your search code from the last project. With depth 2 search, your evaluation function should clear the `smallClassic` layout with one random ghost more than half the time and still run at a reasonable rate (to get full credit, Pacman should be averaging around 1000 points when he's winning).
 
