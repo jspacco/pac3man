@@ -42,7 +42,7 @@ I grabbed some books from Python's Natural Language Toolkit ([NLTK](https://www.
 
 Now, only some words can start a phrase, but each word is not equally likely to start a phrase. Similarly, each word is not equally likely to follow any other word. In fact, if we were to analyze this data, we could produce a really intersting probabilistic state diagram, or Markov Chain:
 
-![img/graph1.png](Markov Chain for above phrases)
+![Markov Chain for above phrases](img/graph1.png)
 
 This is great! But, it's a very, very simple model of language, because the meaning of a word (at least in English) depends on its *context*, or the words that occur around it. We can get a slightly more accurate model of how words fit together if we instead consider n-grams, or sequences of *n consecutive words*. For example, for bigrams (i.e. where n=2), our Markov Chain looks like this:
 
