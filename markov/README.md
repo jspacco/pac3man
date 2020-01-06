@@ -7,7 +7,6 @@ Project 0: Markov Babbler
 Version 1.000
 
 TODO: Finish writing this up
-*** DO NOT EDIT IN THE SOLUTION BRANCH ***
 Only edit in master so that we can merge!
 
 * * *
@@ -20,7 +19,7 @@ Only edit in master so that we can merge!
 *   [Test cases](#Testing)
 
 
-Put the data for download into Google Drive (books.zip)
+TODO: Put the data for download into Google Drive (books.zip)
 Questions to answer about the books (number of states, line stoppers, why that is happening)
 
 ### Introduction
@@ -31,11 +30,19 @@ One very simple approach (and the approach we will us here) is a [Markov Chain](
 
 I grabbed some books from Python's Natural Language Toolkit ([NLTK](https://www.nltk.org/)) package, which in turn gave me access to a variety of public domain texts from Project Gutenberg, which included _Moby Dick_, a complete version of the King James Bible, and several novels from GK Chesterton. I looked for sentences that started with "the X of the", since I figured that phrase shows up in multiple places (it does), and then found a lot of phrases from the King James Bible that contained "the voice of the". Here are those phrases:
 
-TODO: Phrases
+    the voice of the lord breaketh the cedars
+    the voice of the lord divideth the flames of fire
+    the voice of the lord is powerful
+    the voice of the lord is upon the waters
+    the voice of the lord shaketh the wilderness
+    obey the voice of the lord
+    obey the voice of the lord your god
+    obey the voice of the lord thy god
+    obey the voice of the lord our god
 
 Now, only some words can start a phrase, but each word is not equally likely to start a phrase. Similarly, each word is not equally likely to follow any other word. In fact, if we were to analyze this data, we could produce a really intersting probabilistic state diagram, or Markov Chain:
 
-TODO: state diagram
+![img/graph1.png](Markov Chain for above phrases)
 
 This is great! But, it's a very, very simple model of language, because the meaning of a word (at least in English) depends on its *context*, or the words that occur around it. We can get a slightly more accurate model of how words fit together if we instead consider n-grams, or sequences of *n consecutive words*. For example, for bigrams (i.e. where n=2), our Markov Chain looks like this:
 
