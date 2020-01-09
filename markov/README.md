@@ -6,17 +6,14 @@ Project 0: Markov Babbler
 
 Version 1.000
 
-TODO: Finish writing this up
-Only edit in master so that we can merge!
 
 * * *
 
 ### Table of Contents
 
 *   [Introduction](#Introduction)
-*   [Welcome](#Welcome)
-*   [Part 1](#P1)
-*   [Test cases](#Testing)
+*   [Code](#Code)
+*   [Books](#Books)
 
 
 TODO: Put the data for download into Google Drive (books.zip)
@@ -28,47 +25,41 @@ Our goal is to write a program that generates random sentences that kind of soun
 
 One very simple approach (and the approach we will us here) is a [Markov Chain](https://en.wikipedia.org/wiki/Markov_chain). A Markov Chain is a state diagram that has probabilities attached to each transition between states.
 
-I grabbed some books from Python's Natural Language Toolkit ([NLTK](https://www.nltk.org/)) package, which in turn gave me access to a variety of public domain texts from Project Gutenberg, which included _Moby Dick_, a complete version of the King James Bible, and several novels from GK Chesterton. I looked for sentences that started with "the X of the", since I figured that phrase shows up in multiple places (it does), and then found a lot of phrases from the King James Bible that contained "the voice of the". Here are those phrases:
+Here are two good online articles about this:
 
-    the voice of the lord breaketh the cedars
-    the voice of the lord divideth the flames of fire
-    the voice of the lord is powerful
-    the voice of the lord is upon the waters
-    the voice of the lord shaketh the wilderness
-    obey the voice of the lord
-    obey the voice of the lord your god
-    obey the voice of the lord thy god
-    obey the voice of the lord our god
+* [Building Markov Chains in golang](https://mb-14.github.io/tech/2018/10/24/gomarkov.html)
+* [Using Markov Chains to generate Lifetime Movie titles](https://www.soliantconsulting.com/blog/title-generator-using-markov-chains/)
 
-Now, only some words can start a phrase, but each word is not equally likely to start a phrase. Similarly, each word is not equally likely to follow any other word. In fact, if we were to analyze this data, we could produce a really intersting probabilistic state diagram, or Markov Chain:
+I've written some very simple test cases that don't even use complete words, just letters.
 
-<img src="img/graph1.png" alt="Markov Chain for above phrases" />
+    a b c d .
+    a b c e .
+    a b c d e .
+    a b c x y z .
+    x y z a b c !
+    x y z z a b c ?
 
-This is great! But, it's a very, very simple model of language, because the meaning of a word (at least in English) depends on its *context*, or the words that occur around it. We can get a slightly more accurate model of how words fit together if we instead consider n-grams, or sequences of *n consecutive words*. For example, for bigrams (i.e. where n=2), our Markov Chain looks like this:
+If we convert this to a unigram model, we get the following state diagram:
 
-TODO: bigram diagram
+![Markov Chain unigram for above phrases](img/graph1.png)
 
-And if we look at trigrams (i.e. where n=3) we have this:
+If we look at bigrams, we get:
 
-TODO: trigram diagram
+![Markov Chain unigram for above phrases](img/graph2.png)
 
-TODO: non-biblical sources and song lyrics
-
-TODO: link to the source file
-
-TODO: test case, and test case diagram
-
-TODO: running the Python test cases (may need a run.py in here)
-
-TODO: hints on what should be your keys and values, and helper functions that are worth writing. Also, use string slicing as much as possible
-
-TODO: where to download texts, generate and submit your best sentences
-
-TODO: links to other Markov examples, including SongWriterBot https://saisenberg.com/projects/songwriterbot.html http://songwriterbot.herokuapp.com/about
-
-
-### Welcome
 
 ### Code
 
-### Other sections
+Your code should go in [`babbler.py`](babbler.py).
+
+There are unit test cases for the file [`tests/test1.txt`](tests/test1.txt) in [`test_markov.py`](test_markov.py).
+
+Once your basic implementation of the methods in [`babbler.py`](babbler.py) is working, you should pass these test cases.
+
+### Books
+
+Download [this zipfile](https://drive.google.com/open?id=1YN238uggXVqec7-rR-qkGNunvPP5QkvO) of longer texts. Unzip the zipfile into your markov folder.
+
+Train your babbler on one or more of these texts, and produce some interesting sentences.
+
+Submit your most interesting 5 sentences, along with the code for babbler.py
