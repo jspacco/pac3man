@@ -58,7 +58,7 @@ Once your basic implementation of the methods in [`babbler.py`](babbler.py) is w
 
 ### Books
 
-Download [this zipfile](https://drive.google.com/open?id=1YN238uggXVqec7-rR-qkGNunvPP5QkvO) of longer texts. Unzip the zipfile into your markov folder.
+Download [this zipfile](https://drive.google.com/open?id=1YN238uggXVqec7-rR-qkGNunvPP5QkvO) of longer texts (it's in Google Drive so be sure to use the download button in the top right). Unzip the zipfile into your markov folder.
 
 Train your babbler on one or more of these texts, and produce some interesting sentences.
 
