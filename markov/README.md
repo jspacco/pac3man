@@ -41,11 +41,11 @@ I've written some very simple test cases that don't even use complete words, jus
 
 If we convert this to a unigram model, we get the following state diagram:
 
-![Markov Chain unigram for above phrases](img/graph1.png)
+![Markov Chain unigram for above phrases](img/test1.png)
 
 If we look at bigrams, we get:
 
-![Markov Chain unigram for above phrases](img/graph2.png)
+![Markov Chain unigram for above phrases](img/test2.png)
 
 
 ### Code
