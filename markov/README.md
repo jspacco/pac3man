@@ -63,3 +63,5 @@ Download [this zipfile](https://drive.google.com/open?id=1YN238uggXVqec7-rR-qkGN
 Train your babbler on one or more of these texts, and produce some interesting sentences.
 
 Submit your most interesting 5 sentences, along with the code for babbler.py
+
+Make sure that none of your interesting sentences are identical to sentences that occur in the training text. Your program must be generating unique new sentences, not randomly picking complete sentences from the training text.
