@@ -1,5 +1,6 @@
 import random
 import glob
+import sys
 
 """
 Markov Babbler
@@ -139,21 +140,32 @@ class Babbler:
         pass
             
 
-def main():
+def main(n=3, filename='tests/test1.txt', num_sentences=5):
     """
     Simple test driver.
     """
-    filename = 'tests/test1.txt'
+    
     print(filename)
-    babbler = Babbler(3)
+    babbler = Babbler(n)
     babbler.add_file(filename)
         
-    print(len(babbler.get_starters()))
-    print(len(babbler.get_all_ngrams()))
-    print(babbler.get_stoppers())
-    for _ in range(10):
+    print(f'num starters {len(babbler.get_starters())}')
+    print(f'num ngrams {len(babbler.get_all_ngrams())}')
+    print(f'num stoppers {len(babbler.get_stoppers())}')
+    for _ in range(num_sentences):
         print(babbler.babble())
 
 
 if __name__ == '__main__':
-    main()
+    # remove the first parameter, which should be babbler.py, the name of the script
+    sys.argv.pop(0)
+    n = 3
+    filename = 'tests/test1.txt'
+    num_sentences = 5
+    if len(sys.argv) > 0:
+        n = int(sys.argv.pop(0))
+    if len(sys.argv) > 0:
+        filename = sys.argv.pop(0)
+    if len(sys.argv) > 0:
+        num_sentences = int(sys.argv.pop(0))
+    main(n, filename, num_sentences)
