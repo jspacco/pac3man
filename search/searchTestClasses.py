@@ -69,7 +69,7 @@ class GraphSearch(SearchProblem):
             print('"""%s"""' % graph_text)
             raise Exception("GraphSearch graph specification goal_states not found or incorrect on line:" + l)
         goals = r.group(1).split()
-        self.goals = map(str.strip, goals)
+        self.goals = list(map(str.strip, goals))
         self.successors = {}
         all_states = set()
         self.orderedSuccessorTuples = []
@@ -770,7 +770,7 @@ class CornerHeuristicPacman(testClasses.TestCase):
         searchAgents = moduleDict['searchAgents']
         total = 0
         true_cost = float(solutionDict['cost'])
-        thresholds = map(int, solutionDict['thresholds'].split())
+        thresholds = list(map(int, solutionDict['thresholds'].split()))
         game_state = pacman.GameState()
         lay = layout.Layout([l.strip() for l in self.layout_text.split('\n')])
         game_state.initialize(lay, 0)
