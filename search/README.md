@@ -94,17 +94,17 @@ The code for this project consists of several Python files, some of which you wi
 
 After downloading the code (`[search.zip](http://ai.berkeley.edu/projects/release/search/v1/001/search.zip)`), unzipping it, and changing to the directory, you should be able to play a game of Pacman by typing the following at the command line:
 
-python pacman.py
+`python pacman.py`
 
 Pacman lives in a shiny blue world of twisting corridors and tasty round treats. Navigating this world efficiently will be Pacman's first step in mastering his domain.
 
 The simplest agent in `searchAgents.py` is called the `GoWestAgent`, which always goes West (a trivial reflex agent). This agent can occasionally win:
 
-python pacman.py --layout testMaze --pacman GoWestAgent
+`python pacman.py --layout testMaze --pacman GoWestAgent`
 
 But, things get ugly for this agent when turning is required:
 
-python pacman.py --layout tinyMaze --pacman GoWestAgent
+`python pacman.py --layout tinyMaze --pacman GoWestAgent`
 
 If Pacman gets stuck, you can exit the game by typing CTRL-c into your terminal.
 
@@ -112,7 +112,7 @@ Soon, your agent will solve not only `tinyMaze`, but any maze you want.
 
 Note that `pacman.py` supports a number of options that can each be expressed in a long way (e.g., `--layout`) or a short way (e.g., `-l`). You can see the list of all options and their default values via:
 
-python pacman.py -h
+`python pacman.py -h`
 
 Also, all of the commands that appear in this project also appear in `commands.txt`, for easy copying and pasting. In UNIX/Mac OS X, you can even run all these commands in order with `bash commands.txt`.
 
@@ -126,7 +126,7 @@ In `searchAgents.py`, you'll find a fully implemented `SearchAgent`, which plans
 
 First, test that the `SearchAgent` is working correctly by running:
 
-python pacman.py -l tinyMaze -p SearchAgent -a fn=tinyMazeSearch
+`python pacman.py -l tinyMaze -p SearchAgent -a fn=tinyMazeSearch`
 
 The command above tells the `SearchAgent` to use `tinyMazeSearch` as its search algorithm, which is implemented in `search.py`. Pacman should navigate the maze successfully.
 
@@ -142,11 +142,11 @@ Implement the depth-first search (DFS) algorithm in the `depthFirstSearch` funct
 
 Your code should quickly find a solution for:
 
-python pacman.py -l tinyMaze -p SearchAgent
+`python pacman.py -l tinyMaze -p SearchAgent`
 
-python pacman.py -l mediumMaze -p SearchAgent
+`python pacman.py -l mediumMaze -p SearchAgent`
 
-python pacman.py -l bigMaze -z .5 -p SearchAgent
+`python pacman.py -l bigMaze -z .5 -p SearchAgent`
 
 The Pacman board will show an overlay of the states explored, and the order in which they were explored (brighter red means earlier exploration). Is the exploration order what you would have expected? Does Pacman actually go to all the explored squares on his way to the goal?
 
@@ -158,9 +158,9 @@ _Hint:_ If you use a `Stack` as your data structure, the solution found by your 
 
 Implement the breadth-first search (BFS) algorithm in the `breadthFirstSearch` function in `search.py`. Again, write a graph search algorithm that avoids expanding any already visited states. Test your code the same way you did for depth-first search.
 
-python pacman.py -l mediumMaze -p SearchAgent -a fn=bfs
+`python pacman.py -l mediumMaze -p SearchAgent -a fn=bfs`
 
-python pacman.py -l bigMaze -p SearchAgent -a fn=bfs -z .5
+`python pacman.py -l bigMaze -p SearchAgent -a fn=bfs -z .5`
 
 Does BFS find a least cost solution? If not, check your implementation.
 
@@ -168,7 +168,7 @@ _Hint:_ If Pacman moves too slowly for you, try the option `--frameTime 0`.
 
 _Note:_ If you've written your search code generically, your code should work equally well for the eight-puzzle search problem without any changes.
 
-python eightpuzzle.py
+`python eightpuzzle.py`
 
 * * *
 
@@ -180,11 +180,11 @@ By changing the cost function, we can encourage Pacman to find different paths. 
 
 Implement the uniform-cost graph search algorithm in the `uniformCostSearch` function in `search.py`. We encourage you to look through `util.py` for some data structures that may be useful in your implementation. You should now observe successful behavior in all three of the following layouts, where the agents below are all UCS agents that differ only in the cost function they use (the agents and cost functions are written for you):
 
-python pacman.py -l mediumMaze -p SearchAgent -a fn=ucs
+`python pacman.py -l mediumMaze -p SearchAgent -a fn=ucs`
 
-python pacman.py -l mediumDottedMaze -p StayEastSearchAgent
+`python pacman.py -l mediumDottedMaze -p StayEastSearchAgent`
 
-python pacman.py -l mediumScaryMaze -p StayWestSearchAgent
+`python pacman.py -l mediumScaryMaze -p StayWestSearchAgent`
 
 _Note:_ You should get very low and very high path costs for the `StayEastSearchAgent` and `StayWestSearchAgent` respectively, due to their exponential cost functions (see `searchAgents.py` for details).
 
@@ -196,7 +196,7 @@ Implement A\* graph search in the empty function `aStarSearch` in `search.py`. A
 
 You can test your A\* implementation on the original problem of finding a path through a maze to a fixed position using the Manhattan distance heuristic (implemented already as `manhattanHeuristic` in `searchAgents.py`).
 
-python pacman.py -l bigMaze -z .5 -p SearchAgent -a fn=astar,heuristic=manhattanHeuristic
+`python pacman.py -l bigMaze -z .5 -p SearchAgent -a fn=astar,heuristic=manhattanHeuristic`
 
 You should see that A\* finds the optimal solution slightly faster than uniform cost search (about 549 vs. 620 search nodes expanded in our implementation, but ties in priority may make your numbers differ slightly). What happens on `openMaze` for the various search strategies?
 
@@ -212,9 +212,9 @@ _Note: Make sure to complete Question 2 before working on Question 5, because Qu
 
 Implement the `CornersProblem` search problem in `searchAgents.py`. You will need to choose a state representation that encodes all the information necessary to detect whether all four corners have been reached. Now, your search agent should solve:
 
-python pacman.py -l tinyCorners -p SearchAgent -a fn=bfs,prob=CornersProblem
+`python pacman.py -l tinyCorners -p SearchAgent -a fn=bfs,prob=CornersProblem`
 
-python pacman.py -l mediumCorners -p SearchAgent -a fn=bfs,prob=CornersProblem
+`python pacman.py -l mediumCorners -p SearchAgent -a fn=bfs,prob=CornersProblem`
 
 To receive full credit, you need to define an abstract state representation that _does not_ encode irrelevant information (like the position of ghosts, where extra food is, etc.). In particular, do not use a Pacman `GameState` as a search state. Your code will be very, very slow if you do (and also wrong).
 
