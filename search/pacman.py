@@ -676,7 +676,6 @@ def main(argstring):
     pass
 
 if __name__ == '__main__':
-    print(f'pacman sys.argv {sys.argv}')
     """
     The main function called when pacman.py is run
     from the command line:
