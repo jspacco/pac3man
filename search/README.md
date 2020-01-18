@@ -34,7 +34,7 @@ In this project, your Pacman agent will find paths through his maze world, both 
 
 As in Project 0, this project includes an autograder for you to grade your answers on your machine. This can be run with the command:
 
-python autograder.py
+`python autograder.py`
 
 See the autograder tutorial in Project 0 for more information about using the autograder.
 
