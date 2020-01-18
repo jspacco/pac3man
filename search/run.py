@@ -12,5 +12,5 @@ you wan to run!
 
 #pacman.main('python pacman.py --layout tinyMaze --pacman GoWestAgent')
 #pacman.main('python pacman.py -l tinyMaze -p SearchAgent -a fn=tinyMazeSearch')
-#pacman.main('python pacman.py -l mediumMaze -p SearchAgent -a fn=dfs')
-pacman.main('python autograder.py -t test_cases/q2/1-bridge-grid')
+pacman.main('python pacman.py -l mediumMaze -p SearchAgent -a fn=dfs')
+#pacman.main('python autograder.py -t test_cases/q2/1-bridge-grid')
