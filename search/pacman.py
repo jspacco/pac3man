@@ -477,6 +477,7 @@ def readCommand( argv ):
     """
     Processes the command used to run pacman from the command line.
     """
+    print('readCommand argv {argv}')
     from optparse import OptionParser
     usageStr = """
     USAGE:      python pacman.py <options>
@@ -666,15 +667,16 @@ def runGames( layout, pacman, ghosts, display, numGames, record, numTraining = 0
     return games
 
 def main(argstring):
-    argstring = argstring.lstrip('python ').lstrip('python3 ')
-    argstring = argstring.lstrip('pacman.py ')
-
-    args = readCommand(argstring.split())
+    argv = argstring.split()
+    if argv[0] in ['python', 'python3']:
+        argv = argv[1:]
+    args = readCommand(argv[1:])
     runGames(**args)
 
     pass
 
 if __name__ == '__main__':
+    print(f'pacman sys.argv {sys.argv}')
     """
     The main function called when pacman.py is run
     from the command line:
