@@ -32,19 +32,21 @@ Version 1.001. Last Updated: 08/26/2014.
 
 In this project, your Pacman agent will find paths through his maze world, both to reach a particular location and to collect food efficiently. You will build general search algorithms and apply them to Pacman scenarios.
 
-As in Project 0, this project includes an autograder for you to grade your answers on your machine. This can be run with the command:
+This project includes an autograder for you to grade your answers on your machine. This can be run with the command:
 
 `python autograder.py`
 
-See the autograder tutorial in Project 0 for more information about using the autograder.
-
-The code for this project consists of several Python files, some of which you will need to read and understand in order to complete the assignment, and some of which you can ignore. You can download all the code and supporting files as a [zip archive](http://ai.berkeley.edu/projects/release/search/v1/001/search.zip).
+The code for this project consists of several Python files, some of which you will need to read and understand in order to complete the assignment, and some of which you can ignore.
 
 **Files you'll edit:**
 
 [`search.py`](search.py)  Where all of your search algorithms will reside.
 
 [`searchAgents.py`](searchAgents.py)   Where all of your search-based agents will reside.
+
+**Helpful file for running code:**
+
+[`run.py`](run.py)   Use this file to run any commands in this readme. Look at the examples and make modifications as necessary. This file is helpful if you are not running from the command line, but you need to pass command line arguments to the code.
 
 **Files you might want to look at:**
 
@@ -82,17 +84,18 @@ The code for this project consists of several Python files, some of which you wi
 
 **Evaluation:** Your code will be autograded for technical correctness. Please _do not_ change the names of any provided functions or classes within the code, or you will wreak havoc on the autograder. However, the correctness of your implementation -- not the autograder's judgements -- will be the final judge of your score. If necessary, we will review and grade assignments individually to ensure that you receive due credit for your work.
 
-**Academic Dishonesty:** We will be checking your code against other submissions in the class for logical redundancy. If you copy someone else's code and submit it with minor changes, we will know. These cheat detectors are quite hard to fool, so please don't try. We trust you all to submit your own work only; _please_ don't let us down. If you do, we will pursue the strongest consequences available to us.
+**Academic Dishonesty:** We will be checking your code against other submissions in the class for logical redundancy. If you copy someone else's code and submit it with minor changes, we will know. These cheat detectors are quite hard to fool, so please don't try. We trust you all to submit your own work only; _please_ don't let us down.
 
 **Getting Help:** You are not alone! If you find yourself stuck on something, contact the course staff for help. Office hours, open lab, Red Room, and the discussion Google Group forum are there for your support; please use them. If you can't make our office hours, let us know and we will schedule more. We want these projects to be rewarding and instructional, not frustrating and demoralizing. But, we don't know when or how to help unless you ask.
 
-**Discussion:** Please be careful not to post spoilers.
+**Discussion:** Please be careful not to post spoilers! If you fork this repo,
+*make the repo private*.
 
 * * *
 
 ### <a name="Welcome"></a> Welcome to Pacman 
 
-After downloading the code (`[search.zip](http://ai.berkeley.edu/projects/release/search/v1/001/search.zip)`), unzipping it, and changing to the directory, you should be able to play a game of Pacman by typing the following at the command line:
+After downloading or cloning the code, you should be able to play a game of Pacman by typing the following at the command line:
 
 `python pacman.py`
 
@@ -295,7 +298,7 @@ Sometimes, even with A\* and a good heuristic, finding the optimal path through 
 
 Implement the function `findPathToClosestDot` in `searchAgents.py`. Our agent solves this maze (suboptimally!) in under a second with a path cost of 350:
 
-`python pacman.py -l bigSearch -p ClosestDotSearchAgent -z .5`
+python pacman.py -l bigSearch -p ClosestDotSearchAgent -z .5 
 
 _Hint:_ The quickest way to complete `findPathToClosestDot` is to fill in the `AnyFoodSearchProblem`, which is missing its goal test. Then, solve that problem with an appropriate search function. The solution should be very short!
 
