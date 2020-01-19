@@ -295,7 +295,7 @@ Sometimes, even with A\* and a good heuristic, finding the optimal path through 
 
 Implement the function `findPathToClosestDot` in `searchAgents.py`. Our agent solves this maze (suboptimally!) in under a second with a path cost of 350:
 
-python pacman.py -l bigSearch -p ClosestDotSearchAgent -z .5 
+`python pacman.py -l bigSearch -p ClosestDotSearchAgent -z .5`
 
 _Hint:_ The quickest way to complete `findPathToClosestDot` is to fill in the `AnyFoodSearchProblem`, which is missing its goal test. Then, solve that problem with an appropriate search function. The solution should be very short!
 
