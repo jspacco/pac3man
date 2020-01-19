@@ -38,13 +38,13 @@ This project includes an autograder for you to grade your answers on your machin
 
 The code for this project consists of several Python files, some of which you will need to read and understand in order to complete the assignment, and some of which you can ignore.
 
-**Files you'll edit:**
+**Files you'll edit and submit:**
 
 [`search.py`](search.py)  Where all of your search algorithms will reside.
 
 [`searchAgents.py`](searchAgents.py)   Where all of your search-based agents will reside.
 
-**Helpful file for running code:**
+**Helpful file for running code (might edit, won't submit):**
 
 [`run.py`](run.py)   Use this file to run any commands in this readme. Look at the examples and make modifications as necessary. This file is helpful if you are not running from the command line, but you need to pass command line arguments to the code.
 
