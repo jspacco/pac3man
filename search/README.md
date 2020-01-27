@@ -213,7 +213,7 @@ In _corner mazes_, there are four dots, one in each corner. Our new search probl
 
 _Note: Make sure to complete Question 2 before working on Question 5, because Question 5 builds upon your answer for Question 2._
 
-Implement the `CornersProblem` search problem in `searchAgents.py`. You will need to choose a state representation that encodes all the information necessary to detect whether all four corners have been reached. Now, your search agent should solve:
+Implement the `CornersProblem` search problem in [`searchAgents.py`](searchAgents.py). You will need to choose a state representation that encodes all the information necessary to detect whether all four corners have been reached. Now, your search agent should solve:
 
 `python pacman.py -l tinyCorners -p SearchAgent -a fn=bfs,prob=CornersProblem`
 
