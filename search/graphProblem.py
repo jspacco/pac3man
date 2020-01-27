@@ -12,7 +12,7 @@ class GraphProblem(SearchProblem):
     def __init__(self, start, goals, edges):
         self.start = start
         self.goals = goals
-        # edges are a list of tuples of (src, dst, cost)
+        # edges are a list of tuples of (src, action, dst, cost)
         self.edges = {}
         for (src, action, dst, cost) in edges:
             if src not in self.edges:
