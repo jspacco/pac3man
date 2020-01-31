@@ -264,7 +264,7 @@ _Remember:_ If your heuristic is inconsistent, you will receive _no_ credit, so 
 
 Now we'll solve a hard search problem: eating all the Pacman food in as few steps as possible. For this, we'll need a new search problem definition which formalizes the food-clearing problem: `FoodSearchProblem` in `searchAgents.py` (implemented for you). A solution is defined to be a path that collects all of the food in the Pacman world. For the present project, solutions do not take into account any ghosts or power pellets; solutions only depend on the placement of walls, regular food and Pacman. (Of course ghosts can ruin the execution of a solution! We'll get to that in the next project.) If you have written your general search methods correctly, `A*` with a null heuristic (equivalent to uniform-cost search) should quickly find an optimal solution to `testSearch` with no code change on your part (total cost of 7).
 
-python pacman.py -l testSearch -p AStarFoodSearchAgent
+`python pacman.py -l testSearch -p AStarFoodSearchAgent`
 
 _Note:_ `AStarFoodSearchAgent` is a shortcut for `-p SearchAgent -a fn=astar,prob=FoodSearchProblem,heuristic=foodHeuristic`.
 
@@ -274,7 +274,7 @@ _Note: Make sure to complete Question 4 before working on Question 7, because Qu
 
 Fill in `foodHeuristic` in `searchAgents.py` with a consistent heuristic for the `FoodSearchProblem`. Try your agent on the `trickySearch` board:
 
-python pacman.py -l trickySearch -p AStarFoodSearchAgent
+`python pacman.py -l trickySearch -p AStarFoodSearchAgent`
 
 Our UCS agent finds the optimal solution in about 13 seconds, exploring over 16,000 nodes.
 
@@ -298,7 +298,7 @@ Sometimes, even with A\* and a good heuristic, finding the optimal path through 
 
 Implement the function `findPathToClosestDot` in `searchAgents.py`. Our agent solves this maze (suboptimally!) in under a second with a path cost of 350:
 
-python pacman.py -l bigSearch -p ClosestDotSearchAgent -z .5 
+`python pacman.py -l bigSearch -p ClosestDotSearchAgent -z .5`
 
 _Hint:_ The quickest way to complete `findPathToClosestDot` is to fill in the `AnyFoodSearchProblem`, which is missing its goal test. Then, solve that problem with an appropriate search function. The solution should be very short!
 
