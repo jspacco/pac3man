@@ -41,7 +41,7 @@ It can be run for one particular question, such as q2, by:
 
 It can be run for one particular test by commands of the form:
 
-`python autograder.py -t test\_cases/q2/0-small-tree`
+`python autograder.py -t test_cases/q2/0-small-tree`
 
 By default, the autograder displays graphics with the `-t` option, but doesn't with the `-q` option. You can force graphics by using the `--graphics` flag, or force no graphics by using the `--no-graphics` flag.
 
@@ -218,7 +218,7 @@ As with the search and constraint satisfaction problems covered so far in this c
 
 `python autograder.py -q q4`
 
-Debugging on these small and manageable test cases is recommended and will help you to find bugs quickly. **Make sure when you compute your averages that you use floats.** Integer division in Python truncates, so that `1/2 = 0`, unlike the case with floats where `1.0/2.0 = 0.5`.
+Debugging on these small and manageable test cases is recommended and will help you to find bugs quickly. Remember that in Python 3, Integer division automatically converts to floats, unlike in Java or C# or Ruby or most other programming languages. So, 1/2 is 0.5, not 0.
 
 Once your algorithm is working on small trees, you can observe its success in Pacman. Random ghosts are of course not optimal minimax agents, and so modeling them with minimax search may not be appropriate. `ExpectimaxAgent`, will no longer take the min over all ghost actions, but the expectation according to your agent's model of how the ghosts act. To simplify your code, assume you will only be running against an adversary which chooses amongst their `getLegalAction`s uniformly at random.
 
@@ -230,7 +230,7 @@ You should now observe a more cavalier approach in close quarters with ghosts. I
 
 `python pacman.py -p AlphaBetaAgent -l trappedClassic -a depth=3 -q -n 10`
 
-python pacman.py -p ExpectimaxAgent -l trappedClassic -a depth=3 -q -n 10
+`python pacman.py -p ExpectimaxAgent -l trappedClassic -a depth=3 -q -n 10`
 
 You should find that your `ExpectimaxAgent` wins about half the time, while your `AlphaBetaAgent` always loses. Make sure you understand why the behavior here differs from the minimax case.
 
