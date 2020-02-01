@@ -301,9 +301,9 @@ class PacmanGameTreeTest(testClasses.TestCase):
         # load student code and staff code solutions
         multiAgents = moduleDict['multiAgents']
         studentAgent = getattr(multiAgents, self.alg)(depth=self.depth)
-        allActions = map(lambda x: json.loads(x), solutionDict['optimalActions'].split('\n'))
-        altDepthActions = map(lambda x: json.loads(x), solutionDict['altDepthActions'].split('\n'))
-        partialPlyBugActions = map(lambda x: json.loads(x), solutionDict['partialPlyBugActions'].split('\n'))
+        allActions = list(map(lambda x: json.loads(x), solutionDict['optimalActions'].split('\n')))
+        altDepthActions = list(map(lambda x: json.loads(x), solutionDict['altDepthActions'].split('\n')))
+        partialPlyBugActions = list(map(lambda x: json.loads(x), solutionDict['partialPlyBugActions'].split('\n')))
         # set up game state and play a game
         random.seed(self.seed)
         lay = layout.Layout([l.strip() for l in self.layout_text.split('\n')])
