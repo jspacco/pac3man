@@ -53,6 +53,8 @@ The code for this project contains the following files, available as a [zip arch
 
 [`multiAgents.py`](multiAgents.py)   Where all of your multi-agent search agents will reside.
 
+**Files you may want to read:**
+
 [`pacman.py`](pacman.py)   The main file that runs Pacman games. This file also describes a Pacman `GameState` type, which you will use extensively in this project
 
 [`game.py`](game.py)   The logic behind how the Pacman world works. This file describes several supporting types like AgentState, Agent, Direction, and Grid.
