@@ -455,9 +455,6 @@ def parseOptions():
     return opts
 
 
-if __name__ == '__main__':
-    main(sys.argv)
-
 def main(myargs):
     sys.argv = myargs.split()
     opts = parseOptions()
@@ -599,3 +596,7 @@ def main(myargs):
             display.pause()
         except KeyboardInterrupt:
             sys.exit(0)
+
+
+if __name__ == '__main__':
+    main(' '.join(sys.argv))
