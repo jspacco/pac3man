@@ -321,11 +321,6 @@ def getDisplay(graphicsByDefault, options=None):
     return textDisplay.NullGraphics()
 
 
-
-
-if __name__ == '__main__':
-    main(sys.argv)
-
 def main(args):
     options = readCommand(args.split())
     if options.generateSolutions:
@@ -352,3 +347,7 @@ def main(args):
         evaluate(options.generateSolutions, options.testRoot, moduleDict,
             edxOutput=options.edxOutput, muteOutput=options.muteOutput, printTestCase=options.printTestCase,
             questionToGrade=options.gradeQuestion, display=getDisplay(options.gradeQuestion!=None, options))
+
+
+if __name__ == '__main__':
+    main(' '.join(sys.argv))
