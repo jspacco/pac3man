@@ -295,7 +295,11 @@ class Actions:
                    Directions.WEST:  (-1, 0),
                    Directions.STOP:  (0, 0)}
 
-    _directionsAsList = _directions.items()
+    # _directionsAsList = _directions.items()
+    # This is to make sure the items are in the same order 
+    # as the Python 2.7 version 
+    # This is important for the 8-pacman-game test case for q3
+    _directionsAsList = [('West', (-1, 0)), ('Stop', (0, 0)), ('East', (1, 0)), ('North', (0, 1)), ('South', (0, -1))]
 
     TOLERANCE = .001
 
